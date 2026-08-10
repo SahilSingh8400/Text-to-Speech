@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>VaaniAI — Regional Language TTS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-logo">V</div>
+
+      <div>
+        <h2>VaaniAI</h2>
+        <span>Regional Voice Lab</span>
+      </div>
+    </div>
+
+    <nav class="navigation">
+
+      <a href="#" class="nav-link active">
+        <span>✦</span>
+        Studio
+      </a>
+
+      <a href="#" class="nav-link">
+        <span>◷</span>
+        History
+      </a>
+
+      <a href="#" class="nav-link">
+        <span>文</span>
+        Languages
+      </a>
+
+    </nav>
+
+    <div class="sidebar-info">
+
+      <div class="info-icon">◎</div>
+
+      <h3>Built for India</h3>
+
+      <p>
+        Generate natural speech in regional Indian languages.
+      </p>
+
+    </div>
+
+    <div class="system-status">
+      <span></span>
+      System Ready
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div>
+
+        <div class="eyebrow">
+          TEXT TO SPEECH
+        </div>
+
+        <h1>
+          Turn regional text<br>
+          into natural speech.
+        </h1>
+
+        <p class="subtitle">
+          Write, choose a language and generate an audio voice in seconds.
+        </p>
+
+      </div>
+
+      <button class="theme-btn" id="themeBtn">
+        ☼
+      </button>
+
+    </header>
+
+
+    <!-- WORKSPACE -->
+    <section class="workspace">
+
+
+      <!-- TEXT PANEL -->
+      <div class="panel">
+
+        <div class="panel-heading">
+
+          <div>
+            <span class="step">01</span>
+            <h2>Enter your text</h2>
+          </div>
+
+          <button class="clear-btn" id="clearBtn">
+            Clear
+          </button>
+
+        </div>
+
+
+        <div class="text-editor">
+
+          <textarea
+            id="textInput"
+            maxlength="2000"
+            placeholder="Type or paste text here...
+
+उदाहरण: नमस्ते! आपका दिन शुभ हो।"
+          ></textarea>
+
+          <div class="editor-footer">
+
+            <span id="counter">
+              0 / 2000
+            </span>
+
+            <button class="mic-btn">
+              🎙
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="examples">
+
+          <span>Try an example:</span>
+
+          <button data-text="नमस्ते! आपका दिन शुभ हो।">
+            Hindi
+          </button>
+
+          <button data-text="வணக்கம்! இன்று உங்கள் நாள் சிறப்பாக அமையட்டும்.">
+            Tamil
+          </button>
+
+          <button data-text="নমস্কার! আপনার দিনটি শুভ হোক।">
+            Bengali
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- SETTINGS -->
+      <div class="panel settings">
+
+        <div class="panel-heading">
+
+          <div>
+            <span class="step">02</span>
+            <h2>Voice settings</h2>
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Language
+          </label>
+
+          <select id="language">
+
+            <option>🇮🇳 Hindi</option>
+            <option>🇮🇳 Bengali</option>
+            <option>🇮🇳 Marathi</option>
+            <option>🇮🇳 Tamil</option>
+            <option>🇮🇳 Telugu</option>
+            <option>🇮🇳 Gujarati</option>
+            <option>🇮🇳 Kannada</option>
+            <option>🇮🇳 Malayalam</option>
+            <option>🇮🇳 Punjabi</option>
+            <option>🇮🇳 Odia</option>
+            <option>🇮🇳 Assamese</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Voice
+          </label>
+
+          <select>
+
+            <option>Aarav — Natural</option>
+            <option>Anaya — Natural</option>
+            <option>Kabir — Deep</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="slider-grid">
+
+          <div class="field">
+
+            <label>
+              Speed
+              <b id="speedValue">1.0×</b>
+            </label>
+
+            <input
+              type="range"
+              min="0.5"
+              max="2"
+              step="0.1"
+              value="1"
+              id="speed"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Pitch
+              <b id="pitchValue">0</b>
+            </label>
+
+            <input
+              type="range"
+              min="-5"
+              max="5"
+              value="0"
+              id="pitch"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button class="generate-btn" id="generateBtn">
+
+          <span>✦</span>
+
+          Generate Speech
+
+          <strong>→</strong>
+
+        </button>
+
+        <p class="api-note">
+          TTS engine will be connected later.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- OUTPUT -->
+    <section class="output">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="step">03</span>
+          <h2>Generated audio</h2>
+        </div>
+
+        <span class="badge" id="status">
+          Waiting for input
+        </span>
+
+      </div>
+
+
+      <div class="audio-card">
+
+        <div class="empty-audio" id="emptyAudio">
+
+          <div class="wave">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+          </div>
+
+          <h3>
+            Your generated speech will appear here
+          </h3>
+
+          <p>
+            Enter some text above and click Generate Speech.
+          </p>
+
+        </div>
+
+
+        <div class="audio-player hidden" id="audioPlayer">
+
+          <div class="audio-icon">
+            🔊
+          </div>
+
+          <div class="audio-details">
+
+            <strong>
+              Generated Speech
+            </strong>
+
+            <span>
+              Hindi • Natural Voice
+            </span>
+
+            <div class="fake-progress">
+
+              <div></div>
+
+            </div>
+
+          </div>
+
+          <button class="play-btn" id="playBtn">
+            ▶
+          </button>
+
+          <button class="download-btn">
+            ↓
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats">
+
+      <div class="stat">
+
+        <span>Languages</span>
+
+        <strong>11+</strong>
+
+        <small>
+          Regional support
+        </small>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span>Output</span>
+
+        <strong>WAV</strong>
+
+        <small>
+          High quality audio
+        </small>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span>Technology</span>
+
+        <strong>AI</strong>
+
+        <small>
+          Neural speech synthesis
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <footer>
+
+      <span>
+        VaaniAI • Text-to-Speech for Regional Languages
+      </span>
+
+      <span>
+        Built for research & accessibility
+      </span>
+
+    </footer>
+
+  </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
