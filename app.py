@@ -1,9 +1,32 @@
-from gtts import gTTS
+import os
+from dotenv import load_dotenv
+from sarvamai import SarvamAI
+from sarvamai.play import save
 
-text = "hello my name is sahil singh, i am from mirzapur, can you tell me where are you from"
+load_dotenv()
 
-tts = gTTS(text=text, lang="en")
+api_key = os.getenv("SARVAM_API_KEY")
 
-tts.save("gtts.mp3")
+if not api_key:
+    raise RuntimeError("SARVAM_API_KEY was not found in .env")
 
-print("Punjabi audio generated successfully!")
+
+client = SarvamAI(
+    api_subscription_key=api_key
+)
+
+audio = client.text_to_speech.convert(
+    text="""नमस्ते! आज का दिन बहुत सुंदर है।
+मुझे नई चीज़ें सीखना और नए विचारों को आज़माना पसंद है।
+तकनीक हमारे जीवन को आसान और बेहतर बनाने में महत्वपूर्ण भूमिका निभाती है।
+मेहनत, धैर्य और सही दिशा से कोई भी लक्ष्य हासिल किया जा सकता है।
+हर सुबह अपने साथ एक नई उम्मीद और नया अवसर लेकर आती है।""",
+    language_code="hi-IN",
+    speaker="aditya",
+    model="bulbul:v3",
+    output_audio_codec="mp3"
+)
+
+save(audio, "kavita.mp3")
+
+print("Audio generated successfully!")
