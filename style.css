@@ -15,9 +15,9 @@
 ========================================================= */
 
 :root {
-  --background: #f6efe2;
+  --background: #e1dcdc;
 
-  --surface: #fffaf1;
+  --surface: #f7f5f1;
 
   --surface-light: #f1e6d2;
 
@@ -27,9 +27,9 @@
 
   --muted: #806f61;
 
-  --primary: #c85a2b;
+  --primary: #ac38b5;
 
-  --primary-dark: #9f3f1d;
+  --primary-dark: #781e41;
 
   --primary-light: #f4ddc9;
 

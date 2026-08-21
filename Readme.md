@@ -256,50 +256,6 @@ Possible tools:
 
 ---
 
-## 📂 Suggested Project Structure
-
-```text
-regional-language-tts/
-│
-├── app/
-│   ├── main.py
-│   ├── routes/
-│   ├── services/
-│   └── utils/
-│
-├── models/
-│   └── tts_model/
-│
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── metadata/
-│
-├── audio/
-│   ├── generated/
-│   └── samples/
-│
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── training/
-│   ├── train.py
-│   ├── dataset.py
-│   └── config.py
-│
-├── evaluation/
-│   └── evaluate.py
-│
-├── requirements.txt
-├── README.md
-├── FLOW.md
-└── .gitignore
-```
-
----
-
 ## 📊 Dataset
 
 A TTS dataset generally contains:
@@ -383,21 +339,6 @@ The system can be useful for:
 * Streaming audio generation
 * Improved pronunciation handling
 * Code-switching support
-
----
-
-## 🔐 Ethical Considerations
-
-The system should be designed with responsible speech technology practices.
-
-Important considerations include:
-
-* Use properly licensed datasets
-* Obtain consent for recorded voices
-* Do not clone someone's voice without authorization
-* Clearly identify synthetic speech when appropriate
-* Protect speaker and dataset privacy
-* Avoid generating deceptive or impersonating content
 
 ---
 
